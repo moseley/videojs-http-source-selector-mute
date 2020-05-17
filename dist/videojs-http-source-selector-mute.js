@@ -1,6 +1,6 @@
 /**
  * videojs-http-source-selector-mute
- * @version 1.0.0
+ * @version 1.0.1
  * @copyright 2020 Jeremy Moseley <jeremymoseley@me.com>
  * @license MIT
  */
@@ -12,7 +12,7 @@
 
   videojs = videojs && videojs.hasOwnProperty('default') ? videojs['default'] : videojs;
 
-  var version = "1.0.0";
+  var version = "1.0.1";
 
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
