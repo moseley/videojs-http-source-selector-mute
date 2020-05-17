@@ -1,12 +1,12 @@
-# videojs-http-source-selector
+# videojs-http-source-selector-mute
 
-[![NPM](https://nodei.co/npm/videojs-http-source-selector.png)](https://nodei.co/npm/videojs-http-source-selector/) [![Greenkeeper badge](https://badges.greenkeeper.io/jfujita/videojs-http-source-selector.svg)](https://greenkeeper.io/) 
+[![NPM](https://nodei.co/npm/videojs-http-source-selector-mute.png)](https://nodei.co/npm/videojs-http-source-selector-mute/)  
 
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.
 
 ![Alt text](doc/images/example.png "Source selector")
 
-# Test it with your stream [here](https://vod.dev)
+# Test it with your stream [here](https://github.com/moseley/videojs-http-source-selector-mute)
 
 Compatible with vjs 7 and up.
 
@@ -18,21 +18,21 @@ You can configure a bias to lock playback to the highest or lowest resolution by
 
 #### Low:
 ```js
-httpSourceSelector:
+httpSourceSelectorMute:
 {
   default: 'low'
 }
 ```
 #### High:
 ```js
-httpSourceSelector:
+httpSourceSelectorMute:
 {
   default: 'high'
 }
 ```
 #### Auto:
 ```js
-httpSourceSelector:
+httpSourceSelectorMute:
 {
   default: 'auto'
 }
@@ -42,7 +42,7 @@ httpSourceSelector:
 
 ```sh
 npm install --save videojs-contrib-quality-levels
-npm install --save videojs-http-source-selector
+npm install --save videojs-http-source-selector-mute
 ```
 
 # Dependencies
@@ -50,7 +50,7 @@ Requires videojs-contrib-quality-levels
 
 # Usage
 
-To include videojs-http-source-selector on your website or web application, use any of the following methods.
+To include videojs-http-source-selector-mute on your website or web application, use any of the following methods.
 
 ### `<script>` Tag
 
@@ -58,20 +58,20 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ```html
 <script src="//path/to/video.min.js"></script>
-<script src="//path/to/videojs-http-source-selector.min.js"></script>
+<script src="//path/to/videojs-http-source-selector-mute.min.js"></script>
 <script src="//path/to/videojs-contrib-quality-levels.min.js"></script>
 <script>
   var options = 
   {
     plugins: {
-      httpSourceSelector:
+      httpSourceSelectorMute:
       {
         default: 'auto'
       }
     }
   };
   var player = videojs('my-video', options);
-  player.httpSourceSelector();
+  player.httpSourceSelectorMute();
 </script>
 ```
 
@@ -86,11 +86,11 @@ require('videojs-contrib-quality-levels');
 // The actual plugin function is exported by this module, but it is also
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
-require('videojs-http-source-selector');
+require('videojs-http-source-selector-mute');
 
 var player = videojs('my-video');
 
-player.httpSourceSelector();
+player.httpSourceSelectorMute();
 ```
 
 ### RequireJS/AMD
@@ -98,10 +98,10 @@ player.httpSourceSelector();
 When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
 
 ```js
-require(['video.js', 'videojs-contrib-quality-levels', 'videojs-http-source-selector'], function(videojs) {
+require(['video.js', 'videojs-contrib-quality-levels', 'videojs-http-source-selector-mute'], function(videojs) {
   var player = videojs('my-video');
 
-  player.httpSourceSelector();
+  player.httpSourceSelectorMute();
 });
 ```
 
@@ -120,7 +120,7 @@ go to localhost:9999 (or the next free port) and test out the plugin.
 
 ## License
 
-MIT. Copyright (c) Justin Fujita;
+MIT. Copyright (c) Justin Fujita, Jeremy Moseley;
 
 
 [videojs]: http://videojs.com/

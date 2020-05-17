@@ -27,10 +27,10 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
 */
 const onPlayerReady = (player, options) =>
 {
-  player.addClass('vjs-http-source-selector');
-  console.log("videojs-http-source-selector initialized!");
+  player.addClass('vjs-http-source-selector-mute');
+  // console.log("videojs-http-source-selector-mute initialized!");
 
-  console.log("player.techName_:"+player.techName_);
+  // console.log("player.techName_:"+player.techName_);
   //This plugin only supports level selection for HLS playback
   if(player.techName_ != 'Html5')
   {
@@ -47,14 +47,14 @@ const onPlayerReady = (player, options) =>
     var qualityLevels = player.qualityLevels();
     videojs.log('loadmetadata event');
     // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelector() functions called.
-    if(player.videojs_http_source_selector_initialized == 'undefined' || player.videojs_http_source_selector_initialized == true)
+    if(player.videojs_http_source_selector_mute_initialized == 'undefined' || player.videojs_http_source_selector_mute_initialized == true)
     {
-      console.log("player.videojs_http_source_selector_initialized == true");
+      // console.log("player.videojs_http_source_selector_mute_initialized == true");
     }
     else
     {
-      console.log("player.videojs_http_source_selector_initialized == false")
-      player.videojs_http_source_selector_initialized = true;
+      // console.log("player.videojs_http_source_selector_mute_initialized == false")
+      player.videojs_http_source_selector_mute_initialized = true;
       var controlBar = player.controlBar, 
           fullscreenToggle = controlBar.getChild('fullscreenToggle').el();
       controlBar.el().insertBefore(controlBar.addChild('SourceMenuButton').el(), fullscreenToggle);
@@ -70,11 +70,11 @@ const onPlayerReady = (player, options) =>
   * depending on how the plugin is invoked. This may or may not be important
   * to you; if not, remove the wait for "ready"!
   *
-  * @function httpSourceSelector
+  * @function httpSourceSelectorMute
   * @param    {Object} [options={}]
   *           An object of options left to the plugin author to define.
   */
-  const httpSourceSelector = function(options) {
+  const httpSourceSelectorMute = function(options) {
     this.ready(() => {
       onPlayerReady(this, videojs.mergeOptions(defaults, options));
       //this.getChild('controlBar').addChild('SourceMenuButton', {});
@@ -85,7 +85,7 @@ const onPlayerReady = (player, options) =>
   };
 
   // Register the plugin with video.js.
-  registerPlugin('httpSourceSelector', httpSourceSelector);
+  registerPlugin('httpSourceSelectorMute', httpSourceSelectorMute);
 
   // Include the version number.
   httpSourceSelector.VERSION = VERSION;

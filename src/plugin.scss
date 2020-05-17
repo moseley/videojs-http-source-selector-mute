@@ -3,7 +3,7 @@
 .video-js {
 
   // This class is added to the video.js element by the plugin by default.
-  &.vjs-http-source-selector {
+  &.vjs-http-source-selector-mute {
     display: block;
   }
 }

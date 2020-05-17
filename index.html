@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>videojs-http-source-selector Demo</title>
+  <title>videojs-http-source-selector-mute Demo</title>
   <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
   <!--<link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">-->
-  <link href="dist/videojs-http-source-selector.css" rel="stylesheet">
+  <link href="dist/videojs-http-source-selector-mute.css" rel="stylesheet">
 </head>
 <body>
-  <title>videojs-http-source-selector Demo</title>
-  <video id="videojs-http-source-selector-player" width="1280" height="720" class="video-js vjs-default-skin" controls>
+  <title>videojs-http-source-selector-mute Demo</title>
+  <video id="videojs-http-source-selector-mute-player" width="1280" height="720" class="video-js vjs-default-skin" controls>
     <source src="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8" type='application/x-mpegURL'>
   </video>
   Stream URL:
@@ -27,11 +27,11 @@
   <!--<script src="node_modules/video.js/dist/video.js"></script>-->
   <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
   <script src="dist/videojs-contrib-quality-levels.js"></script>
-  <script src="dist/videojs-http-source-selector.js"></script>
+  <script src="dist/videojs-http-source-selector-mute.js"></script>
   <script>
     (function(window, videojs) {
-      var player = window.player = videojs('videojs-http-source-selector-player');
-      player.httpSourceSelector();
+      var player = window.player = videojs('videojs-http-source-selector-mute-player');
+      player.httpSourceSelectorMute();
       //Load stream from query param /?stream=MYHLS_STREAM_URL_GOES_HERE
       var queryParamStream = getQueryString('stream');
       if(queryParamStream !== null)

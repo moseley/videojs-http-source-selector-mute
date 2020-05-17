@@ -10,11 +10,11 @@ import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 
 export default {
-  name: 'videojsHttpSourceSelector',
+  name: 'videojsHttpSourceSelectorMute',
   input: 'src/plugin.js',
   output: {
-    name: 'videojs-http-source-selector',
-    file: 'dist/videojs-http-source-selector.js',
+    name: 'videojs-http-source-selector-mute',
+    file: 'dist/videojs-http-source-selector-mute.js',
     format: 'umd'
   },
   external: [

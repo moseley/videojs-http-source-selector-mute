@@ -9,13 +9,13 @@ import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
 
 export default {
-  name: 'videojsHttpSourceSelector',
+  name: 'videojsHttpSourceSelectorMute',
   input: 'src/plugin.js',
   output: [{
-    file: 'dist/videojs-http-source-selector.cjs.js',
+    file: 'dist/videojs-http-source-selector-mute.cjs.js',
     format: 'cjs'
   }, {
-    file: 'dist/videojs-http-source-selector.es.js',
+    file: 'dist/videojs-http-source-selector-mute.es.js',
     format: 'es'
   }],
   external: [

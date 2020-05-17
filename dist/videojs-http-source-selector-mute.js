@@ -1,12 +1,18 @@
+/**
+ * videojs-http-source-selector-mute
+ * @version 1.0.0
+ * @copyright 2020 Jeremy Moseley <jeremymoseley@me.com>
+ * @license MIT
+ */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
   typeof define === 'function' && define.amd ? define(['video.js'], factory) :
-  (global = global || self, global['videojs-http-source-selector'] = factory(global.videojs));
+  (global = global || self, global['videojs-http-source-selector-mute'] = factory(global.videojs));
 }(this, function (videojs) { 'use strict';
 
   videojs = videojs && videojs.hasOwnProperty('default') ? videojs['default'] : videojs;
 
-  var version = "1.1.5";
+  var version = "1.0.0";
 
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
@@ -39,8 +45,7 @@
     var _proto = SourceMenuItem.prototype;
 
     _proto.handleClick = function handleClick() {
-      var selected = this.options_;
-      console.log("Changing quality to:", selected.label);
+      var selected = this.options_; // console.log("Changing quality to:", selected.label);
 
       _MenuItem.prototype.handleClick.call(this);
 
@@ -107,7 +112,7 @@
 
     _proto.createEl = function createEl() {
       return videojs.dom.createEl('div', {
-        className: 'vjs-http-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
+        className: 'vjs-http-source-selector-mute vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
       });
     };
 
@@ -199,9 +204,9 @@
   */
 
   var onPlayerReady = function onPlayerReady(player, options) {
-    player.addClass('vjs-http-source-selector');
-    console.log("videojs-http-source-selector initialized!");
-    console.log("player.techName_:" + player.techName_); //This plugin only supports level selection for HLS playback
+    player.addClass('vjs-http-source-selector-mute'); // console.log("videojs-http-source-selector-mute initialized!");
+    // console.log("player.techName_:"+player.techName_);
+    //This plugin only supports level selection for HLS playback
 
     if (player.techName_ != 'Html5') {
       return false;
@@ -217,11 +222,9 @@
       var qualityLevels = player.qualityLevels();
       videojs.log('loadmetadata event'); // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelector() functions called.
 
-      if (player.videojs_http_source_selector_initialized == 'undefined' || player.videojs_http_source_selector_initialized == true) {
-        console.log("player.videojs_http_source_selector_initialized == true");
-      } else {
-        console.log("player.videojs_http_source_selector_initialized == false");
-        player.videojs_http_source_selector_initialized = true;
+      if (player.videojs_http_source_selector_mute_initialized == 'undefined' || player.videojs_http_source_selector_mute_initialized == true) ; else {
+        // console.log("player.videojs_http_source_selector_mute_initialized == false")
+        player.videojs_http_source_selector_mute_initialized = true;
         var controlBar = player.controlBar,
             fullscreenToggle = controlBar.getChild('fullscreenToggle').el();
         controlBar.el().insertBefore(controlBar.addChild('SourceMenuButton').el(), fullscreenToggle);
@@ -236,13 +239,13 @@
   * depending on how the plugin is invoked. This may or may not be important
   * to you; if not, remove the wait for "ready"!
   *
-  * @function httpSourceSelector
+  * @function httpSourceSelectorMute
   * @param    {Object} [options={}]
   *           An object of options left to the plugin author to define.
   */
 
 
-  var httpSourceSelector = function httpSourceSelector(options) {
+  var httpSourceSelectorMute = function httpSourceSelectorMute(options) {
     var _this = this;
 
     this.ready(function () {
@@ -253,7 +256,7 @@
   }; // Register the plugin with video.js.
 
 
-  registerPlugin('httpSourceSelector', httpSourceSelector); // Include the version number.
+  registerPlugin('httpSourceSelectorMute', httpSourceSelectorMute); // Include the version number.
 
   httpSourceSelector.VERSION = version;
 
