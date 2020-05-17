@@ -1,6 +1,6 @@
 import videojs from 'video.js';
 
-var version = "1.0.1";
+var version = "1.0.2";
 
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
@@ -208,7 +208,7 @@ var onPlayerReady = function onPlayerReady(player, options) {
 
   player.on(['loadedmetadata'], function (e) {
     var qualityLevels = player.qualityLevels();
-    videojs.log('loadmetadata event'); // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelector() functions called.
+    videojs.log('loadmetadata event'); // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelectorMute() functions called.
 
     if (player.videojs_http_source_selector_mute_initialized == 'undefined' || player.videojs_http_source_selector_mute_initialized == true) ; else {
       // console.log("player.videojs_http_source_selector_mute_initialized == false")
@@ -246,6 +246,6 @@ var httpSourceSelectorMute = function httpSourceSelectorMute(options) {
 
 registerPlugin('httpSourceSelectorMute', httpSourceSelectorMute); // Include the version number.
 
-httpSourceSelector.VERSION = version;
+httpSourceSelectorMute.VERSION = version;
 
-export default httpSourceSelector;
+export default httpSourceSelectorMute;

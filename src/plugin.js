@@ -46,7 +46,7 @@ const onPlayerReady = (player, options) =>
   {
     var qualityLevels = player.qualityLevels();
     videojs.log('loadmetadata event');
-    // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelector() functions called.
+    // hack for plugin idempodency... prevents duplicate menubuttons from being inserted into the player if multiple player.httpSourceSelectorMute() functions called.
     if(player.videojs_http_source_selector_mute_initialized == 'undefined' || player.videojs_http_source_selector_mute_initialized == true)
     {
       // console.log("player.videojs_http_source_selector_mute_initialized == true");
@@ -88,6 +88,6 @@ const onPlayerReady = (player, options) =>
   registerPlugin('httpSourceSelectorMute', httpSourceSelectorMute);
 
   // Include the version number.
-  httpSourceSelector.VERSION = VERSION;
+  httpSourceSelectorMute.VERSION = VERSION;
 
-  export default httpSourceSelector;
+  export default httpSourceSelectorMute;
