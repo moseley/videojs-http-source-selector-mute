@@ -1,6 +1,6 @@
 {
   "name": "videojs-http-source-selector-mute",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Mute Version of VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.",
   "main": "dist/videojs-http-source-selector-mute.cjs.js",
   "repository": {
